@@ -4,6 +4,9 @@ Home              : Page
     MovieList     : Component
         MovieCard : Component
 MovieDetail       : Page
+MyList            : Page
+    MovieList     : Component
+        MovieCard : Component
 
 Total: 
     2 Pages, 
