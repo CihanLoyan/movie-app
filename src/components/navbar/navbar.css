@@ -5,8 +5,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px 80px;
-    font-family: Cascadia Code;
-    font-weight: bold;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .navbar svg {
@@ -14,16 +13,22 @@
 }
 
 .navbar .left {
-    font-size: 20px;
+    font-size: 25px;
+    transition: all .2s linear;
+    cursor: pointer;
+}
+
+.navbar .left:hover {
+    color: #ffcc00;
 }
 
 .navbar .center svg {
     transition: all .4s linear;
     font-size: 45px;
+    color: #ffcc00;
 }
 .navbar .center svg:hover {
     transform: rotate(720deg);
-    color: #ffcc00;
 }
 
 .navbar .right ul {

@@ -1,0 +1,19 @@
+.genres {
+    height: 30px;
+    padding: 5px 30px;
+    display: flex;
+    align-items: center;
+    background-color: antiquewhite;
+    color: black;
+    font-family: Cascadia Code;
+}
+
+.genres ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.genres ul li {
+    cursor: pointer;
+}
