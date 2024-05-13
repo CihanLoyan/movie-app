@@ -10,10 +10,10 @@ const Genres = ({ genres, onSelectedGenre }) => {
   return (
     <div className='genres'>
         <ul>
-            {genres && genres.map((genre) => (
+            {genres && genres.map((genre, index) => (
               <li
                 onClick={() => selectedGenre(genre.id)}
-                key={genre.id}
+                key={genre.id + index}
               >
                 {genre.name}
               </li>

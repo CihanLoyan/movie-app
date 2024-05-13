@@ -11,6 +11,11 @@ export const getMovieList = createAsyncThunk('movies', async () => {
     return res.data.results;
 })
 
+export const getMovieListByGenre = createAsyncThunk('moviesByGenre', async (id) => {
+    const res = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=6fcf1265d261f72a891c26664a6afcf2&with_genres=${id}`)
+    return res.data.results;
+})
+
 export const movieListSlice = createSlice({
     name: "movieList",
     initialState,
@@ -19,6 +24,9 @@ export const movieListSlice = createSlice({
     },
     extraReducers: (builder) => {  // HTTP isteklerinde burası kullanılır.
         builder.addCase(getMovieList.fulfilled, (state, action) => {
+            state.movieList = action.payload;
+        })
+        builder.addCase(getMovieListByGenre.fulfilled, (state, action) => {
             state.movieList = action.payload;
         })
     }
