@@ -16,4 +16,13 @@
 
 .genres ul li {
     cursor: pointer;
+    font-size: 13px;
+}
+
+.genres ul li::after {
+    content: " |";
+}
+
+.genres ul li:last-child::after {
+    content: ""
 }
