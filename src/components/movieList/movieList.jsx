@@ -1,10 +1,11 @@
 import React from 'react'
 import MovieCard from '../movieCard/movieCard'
+import '../movieList/movieList.css'
 
 
-const MoveList = ({ selectedGenreState, movieList }) => {
+const MovieList = ({ selectedGenreState, movieList }) => {
     return (
-        <div>
+        <div className='movie-list'>
             <ul>
               {movieList && movieList.map((movie, index) => (
                 <MovieCard key={movie.id + index} movie={movie} selectedGenreState={selectedGenreState}/>
@@ -15,4 +16,4 @@ const MoveList = ({ selectedGenreState, movieList }) => {
     )
 }
 
-export default MoveList
+export default MovieList

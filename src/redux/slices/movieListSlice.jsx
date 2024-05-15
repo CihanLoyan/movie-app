@@ -12,7 +12,7 @@ export const getMovieList = createAsyncThunk('movies', async () => {
 })
 
 export const getMovieListByGenre = createAsyncThunk('moviesByGenre', async (id) => {
-    const res = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=6fcf1265d261f72a891c26664a6afcf2&with_genres=${id}`)
+    const res = await axios.get(`${API_URL}?api_key=${API_KEY}&with_genres=${id}`)
     return res.data.results;
 })
 

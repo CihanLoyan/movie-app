@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+.movie-card {
+    width: 200px;
+    height: 250px;
+    position: relative;
+    border-radius: 5px;
+    margin: 10px;
+    box-shadow: 0 0px 5px 0px rgba(0, 0, 0, 0.374);
+    cursor: pointer;
+    transform: scale(1);
+    transition: all .2s linear;
+}
+
+.movie-card:hover {
+    transform: scale(1.1);
+}
+
+.movie-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.movie-card .gradient {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    top: 0;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0) linear-gradient(0deg, hsl(0, 0%, 0%) 0%, rgba(0, 0, 0, 0) 65%) repeat scroll 0 0;;
+}
+
+.movie-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 10px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: #ffffff;
+    z-index: 2;
+}
+
+.movie-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    overflow: hidden;  /* Taşan kısımları gizle */
+    text-overflow: ellipsis; /* Taşan kısımları temsil etmek için '...' koyar  */
+    display: -webkit-box;  
+    -webkit-box-orient: vertical; /* satırları dikey olarak sırala */
+    -webkit-line-clamp: 2;  /* Görünecek kısmı 2 satırla sınırladım */
+    word-break: break-word;
+}
+
+.movie-info .movie-rating {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 18px;
+    padding-right: 10px;
+}
+
+.movie-rating svg {
+    margin-left: 5px;
+    color: #ffae00;
+}
