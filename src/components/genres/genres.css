@@ -1,11 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 .genres {
     height: 30px;
     padding: 5px 30px;
     display: flex;
     align-items: center;
-    background-color: antiquewhite;
-    color: black;
-    font-family: Cascadia Code;
+    color: #ffffff;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
 }
 
 .genres ul {
@@ -17,12 +19,19 @@
 .genres ul li {
     cursor: pointer;
     font-size: 13px;
+    transition: all .3s;
+}
+
+.genres ul li:hover {
+    transform: scale(1.3);
+    color: #ffcc00;
 }
 
 .genres ul li::after {
-    content: " |";
+    content: '|';
+    padding: 0 .5rem 0 .75rem;
 }
 
 .genres ul li:last-child::after {
-    content: ""
+    content: "";
 }

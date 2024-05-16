@@ -1,14 +1,14 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import axios from "axios"
-import { API_KEY, API_MOVIE_LIST_URL, API_MOVIE_FIND_URL } from "../../constants/api"
+import { API_KEY, API_MOVIE_FIND_URL } from "../../constants/api"
 
 const initialState = {
     movieDetail: []
 }
 
 export const getMovieById = createAsyncThunk('getMovieById', async (id) => {
-    const res = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=6fcf1265d261f72a891c26664a6afcf2`)
-    console.log(res);
+    const res = await axios.get(`${API_MOVIE_FIND_URL}/${id}?api_key=${API_KEY}`)
+    console.log(res.data);
     return res.data;
 })
 

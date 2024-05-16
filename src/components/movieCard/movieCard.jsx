@@ -2,21 +2,23 @@ import React from 'react'
 import { API_IMG } from '../../constants/api'
 import './movieCard.css'
 import { FaStar } from "react-icons/fa6";
+import { Link } from 'react-router-dom';
 
 const MovieCard = ({ movie }) => {
-  const { title, backdrop_path, vote_average } = movie;
+  const { id, title, vote_average, poster_path } = movie;
   return (
-    <div className="movie-card">
-      <div className='gradient'></div>
-      <img src={`${API_IMG}/${backdrop_path}`} alt={title} />
-      <div className="movie-info">
-        <h3 className="movie-title">{title}</h3>
-        <div className="movie-rating">
-          <p>{vote_average.toFixed(1)}</p>
-          <FaStar />
+    <Link to={`${id}`}>
+      <div className="movie-card">
+        <div className='gradient'></div>
+        <img src={`${API_IMG}/${poster_path}`} alt={title} />
+        <div className="movie-info">
+          <div className="movie-rating">
+            <p>{vote_average.toFixed(1)}</p>
+            <FaStar />
+          </div>
         </div>
-      </div>
-    </div> 
+      </div> 
+    </Link>
   )
     {/* <div className='movie-card'>
       <img src={`${API_IMG}/${backdrop_path}`} alt={title} />
