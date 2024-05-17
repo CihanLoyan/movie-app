@@ -23,6 +23,7 @@
 .movie-detail header p {
     font-size: 32px;
     font-weight: 700;
+    width: 70%;
 }
 
 .add-favorite button {
