@@ -10,7 +10,7 @@
     border-radius: 10px;
     overflow: hidden;
     padding: 50px 20px;
-    color: #ffffff;
+    color: #dedede;
     font-family: "Roboto", sans-serif;
 }
 
@@ -130,6 +130,7 @@
 }
 
 .movie-detail .content .right .movie-overview p {
+    font-size: 18px;
     border-radius: 5px;
     text-align: justify;
     line-height: 22px;

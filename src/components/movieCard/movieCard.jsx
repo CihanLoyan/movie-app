@@ -20,10 +20,6 @@ const MovieCard = ({ movie }) => {
       </div> 
     </Link>
   )
-    {/* <div className='movie-card'>
-      <img src={`${API_IMG}/${backdrop_path}`} alt={title} />
-      {title}
-    </div> */}
 }
 
 export default MovieCard

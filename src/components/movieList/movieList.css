@@ -1,11 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 .movie-list {
     width: 80%;
     margin: 0 auto;
-    padding-top: 20px;
+    padding-top: 40px;
 }
 
 .movie-list ul {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+.movie-list h1 {
+    font-family: "Roboto", sans-serif;
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: 700;
+    color: #dedede;
 }
