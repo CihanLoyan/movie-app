@@ -12,7 +12,7 @@ const MyList = () => {
 
 
   const [itemOffset, setItemOffset] = useState(0);
-    const itemsPerPage = 8; 
+    const itemsPerPage = 10 ; 
     const endOffset = itemOffset + itemsPerPage;
     console.log(`Loading items from ${itemOffset} to ${endOffset}`);
     const currentItems = movies.slice(itemOffset, endOffset);
@@ -41,7 +41,7 @@ const MyList = () => {
                     breakLabel="..."
                     nextLabel={<GrNext />}
                     onPageChange={handlePageClick}
-                    pageRangeDisplayed={5}
+                    pageRangeDisplayed={10}
                     pageCount={pageCount}
                     previousLabel={<GrPrevious />}
                     renderOnZeroPageCount={null}

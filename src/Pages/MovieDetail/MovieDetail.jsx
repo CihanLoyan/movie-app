@@ -91,7 +91,7 @@ const MovieDetail = () => {
                 </div>
                 <div className="movie-rating">
                     <FaStar />
-                    <p>{vote_average}</p>
+                    <p>{vote_average.toFixed(1)}</p>
                 </div>
                 <div className='release-date'>
                     <span>Year:</span>
