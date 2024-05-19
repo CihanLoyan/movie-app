@@ -18,7 +18,6 @@ const Home = () => {
     // dispatch(getGenres()) çalıştığında genres state'i güncellenir.
     const { movieList } = useSelector((store) => store.movieList)  // movieList: state[]
     // dispatch(getMovieList()) ve dispatch(getMovieListByGenre()) çalıştığında movieList state'i güncellenir.
-
     const [selectedGenreState, setSelectedGenreState] = useState([28])  // Default Action verildi.
     // Seçili kategori id'sini tutan state
 
@@ -42,7 +41,7 @@ const Home = () => {
 
   return (
     <div>
-        <Genres genres={genres} onSelectedGenre={selectedGenre}/>
+        <Genres genres={genres} selectedGenreState={selectedGenreState} onSelectedGenre={selectedGenre}/>
         <Suspense fallback={<>...Loading Movie List...</>}>  
             <MovieList movieList={movieList} selectedGenreState={selectedGenreState} genres={genres}/>
         </Suspense>

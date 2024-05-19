@@ -1,15 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 .movie-detail {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100%;
     max-width: 1000px;
     margin: 0 auto;
     background-color: #000000;
     border-radius: 10px;
     overflow: hidden;
-    padding: 50px 20px;
+    padding: 60px 20px;
     color: #dedede;
     font-family: "Roboto", sans-serif;
 }
@@ -26,40 +25,42 @@
     width: 70%;
 }
 
-.add-favorite button {
+.add-favorite-remove .btn {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
 }
 
-.add-favorite .btn span:first-child {
+.add-favorite-remove .btn span:first-child {
     display: flex;
 }
 
-.add-favorite .btn span:first-child svg {
+.add-favorite-remove .add span:first-child svg {
     color: #ffcc00;
     transition: all 0.5s;
 }
+.add-favorite-remove .remove span:first-child svg {
+    color: #ff0000;
+    transition: all 0.5s;
+}
 
-.add-favorite .btn:hover span:first-child svg {
+.add-favorite-remove .btn:hover span:first-child svg {
     color: #000000;
 }
 
-.add-favorite .btn span:last-child {
+.add-favorite-remove .btn span:last-child {
     color: #ffffff;
-    transition: all .3s;
+    transition: all .5s;
     font-size: 16px;
 }
 
-.add-favorite .btn:hover span:last-child {
+.add-favorite-remove .btn:hover span:last-child {
     color: #000000;
 }
 
 .btn {
-    border: 1px solid #ffcc00;
     background-color: transparent;
     border: none;
-    box-shadow: 0 0 0 1px #ffcc00;
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
@@ -72,8 +73,20 @@
     outline: none;
 }
 
-.btn:hover {
+.add {
+    box-shadow: 0 0 0 1px #ffcc00;
+}
+.add:hover {
     background-color: #ffcc00;
+    color: #000000;
+}
+
+.remove {
+    box-shadow: 0 0 0 1px #c20000;
+}
+
+.remove:hover {
+    background-color: #c20000;
     color: #000000;
 }
 

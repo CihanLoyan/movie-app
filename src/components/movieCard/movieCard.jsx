@@ -4,16 +4,18 @@ import './movieCard.css'
 import { FaStar } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
 
+
 const MovieCard = ({ movie }) => {
   const { id, title, vote_average, poster_path } = movie;
+  
   return (
-    <Link to={`${id}`}>
+    <Link to={`/${id}`}>
       <div className="movie-card">
         <div className='gradient'></div>
         <img src={`${API_IMG}/${poster_path}`} alt={title} />
         <div className="movie-info">
           <div className="movie-rating">
-            <p>{vote_average.toFixed(1)}</p>
+            <p>{vote_average}</p>
             <FaStar />
           </div>
         </div>

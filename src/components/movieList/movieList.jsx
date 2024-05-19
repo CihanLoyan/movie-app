@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState} from 'react'
 import MovieCard from '../movieCard/movieCard'
 import '../movieList/movieList.css'
 
@@ -23,6 +23,7 @@ const MovieList = ({ selectedGenreState, movieList, genres }) => {
                 <MovieCard key={movie.id + index} movie={movie} />
               ))}
             </ul>
+            
         </div>
     )
 }

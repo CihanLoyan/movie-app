@@ -1,12 +1,15 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { FaStar } from "react-icons/fa6";
 import { FaHeart } from 'react-icons/fa'
+import { IoIosRemoveCircle } from "react-icons/io";
 import './MovieDetail.css'
 
 import { getMovieById } from '../../redux/slices/movieDetailSlice'
 import { API_IMG } from '../../constants/api'
+import { addToFavorite } from '../../redux/slices/favoritesSlice';
+import { removeFromFavorite } from '../../redux/slices/favoritesSlice';
 
 
 const MovieDetail = () => {
@@ -17,23 +20,63 @@ const MovieDetail = () => {
     const { title, vote_average, overview, genres, poster_path, spoken_languages, release_date} = movieDetail
     const dispatch = useDispatch();
 
+    const { movies } = useSelector((store) => store.favorite)
+
+    console.log(movies);
+
+
+    const [isFavorite, setIsFavorite] = useState(false)  // İlgili filmin favorilere ekli olup olmadığı bilgisini tutan state.
+    useEffect(() => {
+        const isFavorite = movies && movies.find((movie) => movie.id == id)  // Eğer ilgili film localStorage'da ise değişkene aktar ve
+        if(isFavorite) {  // Bu değişken var ise
+            setIsFavorite(true)  // Favorilerde olduğunu belirtiyoruz.
+        } else {
+            setIsFavorite(false)
+        }
+    }, [movies])
+
+
     useEffect(() => {
       dispatch(getMovieById(id))
       console.log("getMovieById()");
-    }, [])
+    }, [id])
 
+    const release_year = new Date(release_date)  // Sadece yıl bilgisini çekmek için.
 
-    const release_year = new Date(release_date)  // Ssdece yıl bilgisini çekmek için.
-    console.log(release_year.getFullYear());
+    const addFavorite = () => {
+        const payload = {
+            id,
+            title,
+            vote_average,
+            poster_path,
+        }
+        dispatch(addToFavorite(payload))
+    }
+
+    const removeFavorite = () => {
+        const payload = {
+            id,
+        }
+        dispatch(removeFromFavorite(payload))
+    }
+
   return (
       <div className="movie-detail">
           <header>
             <p>{title}</p>
-            <div className='add-favorite'>
-                <button className='btn'>
+            <div className='add-favorite-remove'>
+               {
+                isFavorite ?    // yukarıdan true dönerse ilgili film zaten favorilerde olduğu için remove movie butonu gösterilir..
+                <button onClick={removeFavorite} className='btn remove'>
+                    <span><IoIosRemoveCircle /></span>
+                    <span>Remove Favorite</span>
+                </button>
+                :  // false dönerse film favorilerde olmadığı için add favorite butonu gösterilir.
+                <button onClick={addFavorite} className='btn add'>
                     <span><FaHeart /></span>
                     <span>Add Favorite</span>
                 </button>
+               }
             </div>
           </header>
           <div className='content'>
@@ -48,7 +91,7 @@ const MovieDetail = () => {
                 </div>
                 <div className="movie-rating">
                     <FaStar />
-                    <p>{vote_average?.toFixed(1)}</p>
+                    <p>{vote_average}</p>
                 </div>
                 <div className='release-date'>
                     <span>Year:</span>
@@ -59,7 +102,7 @@ const MovieDetail = () => {
                         <span>Genre:</span>
                         <ul>
                             {genres && genres.map((genre) => (
-                              <li className="movie-genre">{genre.name}</li>
+                              <li key={genre.id} className="movie-genre">{genre.name}</li>
                             ))}
                         </ul>
                     </div>

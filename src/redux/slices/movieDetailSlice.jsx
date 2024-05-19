@@ -8,7 +8,6 @@ const initialState = {
 
 export const getMovieById = createAsyncThunk('getMovieById', async (id) => {
     const res = await axios.get(`${API_MOVIE_FIND_URL}/${id}?api_key=${API_KEY}`)
-    console.log(res.data);
     return res.data;
 })
 

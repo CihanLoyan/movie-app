@@ -1,7 +1,7 @@
 import React from 'react'
 import './genres.css'
 
-const Genres = ({ genres, onSelectedGenre }) => {
+const Genres = ({ genres, onSelectedGenre}) => {
 
   const selectedGenre = (id) => {
       onSelectedGenre(id)
@@ -12,6 +12,7 @@ const Genres = ({ genres, onSelectedGenre }) => {
         <ul>
             {genres && genres.map((genre, index) => (
               <li
+                className='selected'
                 onClick={() => selectedGenre(genre.id)}
                 key={genre.id + index}
               >

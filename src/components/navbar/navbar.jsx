@@ -7,8 +7,10 @@ import { FaHeart } from 'react-icons/fa'
 import { PiFilmReelFill } from 'react-icons/pi'
 
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const Navbar = () => {
+    const { movies } = useSelector((store) => store.favorite)
   return (
     <div className='navbar'>
         <div className="left">
@@ -23,7 +25,10 @@ const Navbar = () => {
                     <Link to={`${HOME}`}><TiHome /></Link>
                 </li>
                 <li>
-                    <Link to={`${MY_LIST}`}><FaHeart /></Link> 
+                    <Link to={`${MY_LIST}`}>
+                        <FaHeart />
+                        <div className='favorite-count'>{movies.length}</div>
+                    </Link>
                 </li>
             </ul>
         </div>
