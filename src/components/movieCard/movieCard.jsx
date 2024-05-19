@@ -15,7 +15,7 @@ const MovieCard = ({ movie }) => {
         <img src={`${API_IMG}/${poster_path}`} alt={title} />
         <div className="movie-info">
           <div className="movie-rating">
-            <p>{vote_average}</p>
+            <p>{vote_average?.toFixed(1)}</p>
             <FaStar />
           </div>
         </div>
