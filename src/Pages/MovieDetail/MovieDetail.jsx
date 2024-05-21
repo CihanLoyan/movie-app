@@ -18,12 +18,13 @@ const MovieDetail = () => {
 
     const { movieDetail } = useSelector((store) => store.movieDetail)
     // const { title, vote_average, overview, genres, poster_path, spoken_languages, release_date} = movieDetail
-    const {title, vote_average, poster_path } = movieDetail;
+    const {title, vote_average, poster_path, backdrop_path } = movieDetail;
     const dispatch = useDispatch();
 
     const { movies } = useSelector((store) => store.favorite)
 
     console.log(movies);
+    console.log(backdrop_path);
 
 
     const [isFavorite, setIsFavorite] = useState(false)  // İlgili filmin favorilere ekli olup olmadığı bilgisini tutan state.
@@ -63,6 +64,7 @@ const MovieDetail = () => {
 
   return (
       <div className="movie-detail">
+           <img className='backdrop'src={`${API_IMG}/${movieDetail?.backdrop_path}`} alt={movieDetail.title} />
           <header>
             <p>{movieDetail?.title}</p>
             <div className='add-favorite-remove'>
