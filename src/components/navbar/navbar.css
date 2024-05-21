@@ -16,12 +16,17 @@
 
 .navbar .left {
     font-size: 25px;
-    transition: all .2s linear;
     cursor: pointer;
 }
 
-.navbar .left:hover {
+.navbar .left:hover a {
     color: #ffcc00;
+}
+
+.navbar .left a {
+    transition: all .2s linear;
+    text-decoration: none;
+    color: #ffffff;
 }
 
 .navbar .center svg {

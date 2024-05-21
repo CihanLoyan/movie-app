@@ -1,5 +1,6 @@
 import './App.css'
 import './css/reset.css'
+import React from 'react'
 
 import Navbar from './components/navbar/navbar'
 import Home from './Pages/Home/Home'
