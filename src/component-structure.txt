@@ -1,4 +1,4 @@
-Navbar            : Component
+    Navbar        : Component
 Home              : Page
     Category      : Component
     MovieList     : Component
@@ -9,5 +9,5 @@ MyList            : Page
         MovieCard : Component
 
 Total: 
-    2 Pages, 
+    3 Pages, 
     4 Components
