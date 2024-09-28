@@ -6,18 +6,13 @@ import { Suspense } from 'react'
 
 const Home = () => { 
 
-  const [selectedGenreState, setSelectedGenreState] = useState([])
-  // Seçili kategori id'sini tutan state
-
-  const selectedGenre = (id) => {
-      setSelectedGenreState(id)
-  }
+  const [selectedGenre, setSelectedGenre] = useState("")
 
   return (
     <div>
-        <Genres onSelectedGenre={selectedGenre}/>
+        <Genres setSelectedGenre={setSelectedGenre} />
         <Suspense fallback={<>...Loading Movie List...</>}>  
-            <MovieList selectedGenreState={selectedGenreState} />
+            <MovieList selectedGenre={selectedGenre} />
         </Suspense>
     </div>
   )

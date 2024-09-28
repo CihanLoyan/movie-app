@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './genres.css'
 import { getGenres } from '../../redux/slices/genreSlice'
 import { useDispatch, useSelector } from 'react-redux'
 
-const Genres = ({ onSelectedGenre}) => {
+const Genres = ({ setSelectedGenre}) => {
   const dispatch = useDispatch()
   
   const { genres } = useSelector((store) => store.genre)  // genres: state[]
@@ -13,17 +13,13 @@ const Genres = ({ onSelectedGenre}) => {
     dispatch(getGenres())
   }, [])
 
-  const selectedGenre = (id) => {
-      onSelectedGenre(id)
-  }
-
   return (
     <div className='genres'>
         <ul>
             {genres && genres.map((genre, index) => (
               <li
                 className='selected'
-                onClick={() => selectedGenre(genre)}
+                onClick={() => setSelectedGenre(genre)}
                 key={genre.id + index}
               >
                 {genre.name}

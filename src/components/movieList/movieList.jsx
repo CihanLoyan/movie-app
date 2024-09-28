@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getMovieListByGenre, getMovieList } from '../../redux/slices/movieListSlice';
 
 
-const MovieList = ({ selectedGenreState }) => {
+const MovieList = ({ selectedGenre }) => {
     const { movieList } = useSelector((store) => store.movieList)  // movieList: state[]
     // dispatch(getMovieList()) ve dispatch(getMovieListByGenre()) çalıştığında movieList state'i güncellenir.
     const dispatch = useDispatch()
@@ -27,18 +27,18 @@ const MovieList = ({ selectedGenreState }) => {
     }
 
     useEffect(() => {
-      if (selectedGenreState.length == 0) { // içinde herhangi bir eleman yoksa:
+      if (!selectedGenre) { // tür seçilmemişse:
         dispatch(getMovieList())
-        console.log("Tür seçilmedi. getMovieList() çalıştı...");
+        console.log("Tür seçilmedi. getMovieList() çalisti...");
       } else {
-        dispatch(getMovieListByGenre(selectedGenreState.id))
-        console.log("Tür seçildi. getMovieListByGenre() çalıştı...", selectedGenreState);
+        dispatch(getMovieListByGenre(selectedGenre.id))
+        console.log("Tür seçildi. getMovieListByGenre() çalisti...", selectedGenre);
       }
-    }, [selectedGenreState])  // her render'da ve seçili tür id'sini tutan state her değiştiğinde çalışır.
+    }, [selectedGenre])  // her render'da ve seçili tür id'sini tutan state her değiştiğinde çalışır.
 
     return (
         <div className='movie-list'>
-            <h1>{selectedGenreState.name}</h1>
+            <h1>{selectedGenre.name}</h1>
             <ul>
               {currentItems && currentItems.map((movie, index) => (
                 <MovieCard key={movie.id + index} movie={movie} />

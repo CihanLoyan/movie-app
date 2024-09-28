@@ -1,15 +1,14 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
+import { API_KEY, API_GENRE_URL } from '../../constants/api'
 
-const API_URL = `https://api.themoviedb.org/3/genre/movie/list`
-const API_KEY = `6fcf1265d261f72a891c26664a6afcf2`
 
 const initialState = {
     genres: []
 }
 
 export const getGenres = createAsyncThunk('genres', async () => {
-    const res = await axios.get(`${API_URL}?api_key=${API_KEY}`)
+    const res = await axios.get(`${API_GENRE_URL}?api_key=${API_KEY}`)
     return res.data.genres;
 })
 
