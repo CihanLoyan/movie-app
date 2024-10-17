@@ -13,13 +13,20 @@ const Genres = ({ setSelectedGenre}) => {
     dispatch(getGenres())
   }, [])
 
+  const [activeGenre, setActiveGenre] = useState(null)
+
+  const handleGenre = (genre) => {
+    setSelectedGenre(genre)
+    setActiveGenre(genre.id)
+  }
+
   return (
     <div className='genres'>
         <ul>
             {genres && genres.map((genre, index) => (
               <li
-                className='selected'
-                onClick={() => setSelectedGenre(genre)}
+                className={`genre ${genre.id === activeGenre ? 'active' : ''}`}
+                onClick={() => handleGenre(genre)}
                 key={genre.id + index}
               >
                 {genre.name}
