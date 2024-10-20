@@ -12,7 +12,7 @@ const Genres = ({ setSelectedGenre}) => {
   useEffect(() => {
     dispatch(getGenres())
   }, [])
-
+  
   const [activeGenre, setActiveGenre] = useState(null)
 
   const handleGenre = (genre) => {
@@ -20,10 +20,14 @@ const Genres = ({ setSelectedGenre}) => {
     setActiveGenre(genre.id)
   }
 
+  let filteredGenres = genres.filter((genre) => {
+    return genre.id !== 10749 && genre.id !== 18;
+  })  
+
   return (
     <div className='genres'>
         <ul>
-            {genres && genres.map((genre, index) => (
+            {filteredGenres?.map((genre, index) => (
               <li
                 className={`genre ${genre.id === activeGenre ? 'active' : ''}`}
                 onClick={() => handleGenre(genre)}

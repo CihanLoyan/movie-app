@@ -1,4 +1,4 @@
-import React, {lazy, useState } from 'react'
+import React, { lazy, useState } from 'react'
 import Genres from '../../components/genres/genres'
 // import MovieList from '../../components/movieList/movieList'
 const MovieList = lazy(() => import('../../components/movieList/movieList'))
@@ -7,18 +7,19 @@ import { Suspense } from 'react'
 import ReactLoading from 'react-loading';
 import './Home.css'
 
-const Home = () => { 
+const Home = () => {
 
-  const [selectedGenre, setSelectedGenre] = useState('')
+  const [selectedGenre, setSelectedGenre] = useState(null) // Başlangıçta seçili tür yok.
 
-  return (
-    <div className='Home'>
+
+    return (
+      <div className='Home'>
         <Genres setSelectedGenre={setSelectedGenre} />
-        <Suspense fallback={<ReactLoading color='#ffcc00' height={'20%'} width={'10%'} />}>  
-            <MovieList selectedGenre={selectedGenre} />
+        <Suspense fallback={<ReactLoading color='#ffcc00' height={'20%'} width={'10%'} />}>
+          <MovieList selectedGenre={selectedGenre} />
         </Suspense>
-    </div>
-  )
+      </div>
+    )
 }
 
 export default Home
